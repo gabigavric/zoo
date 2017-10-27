@@ -1,11 +1,37 @@
-//example of how to do a pipe
+import { Pipe, PipeTransform } from '@angular/core';
+import { Animal } from './animal.model';
 
-// import { Component } from '@angular/core';
-//
-// @Component({
-//   selector: 'hero-birthday',
-//   template: `<p>The hero's birthday is {{ birthday | date }}</p>`
-// })
-// export class HeroBirthdayComponent {
-//   birthday = new Date(1988, 3, 15); // April 15, 1988
-// }
+@Pipe({
+  name: "age",
+  pure: false
+})
+
+export class AgePipe implements PipeTransform {
+  transform(input: Animal[], ageOfAnimal) {
+    var output: Animal[] = [];
+
+    if(ageOfAnimal==='allAnimals') {
+      for(var i = 0; i < input.length; i++) {
+        if(input[i].age >= 1 ) {
+          output.push(input[i]);
+        }
+
+    }else if(ageOfAnimal === 'youngAnimal') {
+      for(var i = 0; i < input.length; ++i) {
+        if(input[i].age < 3) {
+          output.push(input[i]);
+        }
+      }
+      return output;
+    }else if(ageOfAnimal === 'oldAnimal') {
+      for(var i = 0; i < input.length; ++i) {
+        if(input[i].age >= 3) {
+          output.push(input[i]);
+        }
+      }
+      return output;
+    }else{
+      return input;
+    }
+  }
+}

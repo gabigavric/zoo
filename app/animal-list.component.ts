@@ -7,8 +7,8 @@ import { Animal } from './animal.model';
   <h3>Filter Animals:</h3>
   <select (change)="onChange($event.target.value)">
     <option value="allAnimals">View All Animals</option>
-    <option value="youngAnimals">Young Animals</option>
-    <option value="oldAnimals">Adult Animals</option>
+    <option value="youngAnimal">Young Animals</option>
+    <option value="oldAnimal">Adult Animals</option>
   </select>
 
 <ul *ngFor='let currentAnimal of childAnimalList | age:filterByAge'>>
