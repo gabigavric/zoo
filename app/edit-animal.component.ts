@@ -10,6 +10,7 @@ import { Animal } from './animal.model';
       <h3>Edit an Animal's Information</h3>
 
       <div *ngIf='childSelectedAnimal'>
+      <h3>{{childSelectedAnimal.species}}</h3><h4>{{childSelectedAnimal.name}}</h4>
 
       <label>Species:</label>
       <input [(ngModel)]="childSelectedAnimal.species">
