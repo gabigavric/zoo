@@ -5,10 +5,8 @@ import { Animal } from './animal.model';
 @Component({
   selector: 'app-root',
   template: `
-        <h1>Animals</h1>
-        <h3>{{currentFocus}}</h3>
+        <h1>{{currentFocus}}</h1>
         <animal-list [childAnimalList]="masterAnimalList" (clickSender)="editAnimal($event)"></animal-list>
-        <hr>
 
         <edit-animal [childSelectedAnimal]="selectedAnimal" (doneButtonClickedSender)="finishedEditing()"></edit-animal>
         <new-animal (newAnimalSender)="addAnimal($event)"></new-animal>

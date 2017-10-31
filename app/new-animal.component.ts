@@ -4,40 +4,44 @@ import { Animal } from './animal.model';
 @Component({
   selector: 'new-animal',
   template: `
+      <h3>Add a New Animal</h3>
 
-  <h1>Add a new animal</h1>
+       <label>Species:</label>
+       <input #newSpecies>
+       <br>
 
-   <label>Animal species:</label>
-   <input #newSpecies>
+       <label>Name:</label>
+       <input #newName>
+       <br>
 
+       <label>Age:</label>
+       <input #newAge>
+       <br>
 
-   <label>Animal name:</label>
-   <input #newName>
+       <label>Diet:</label>
+       <input #newDiet>
+       <br>
 
+       <label>Location:</label>
+       <input #newLocation>
+       <br>
 
-   <label>Animal age:</label>
-   <input #newAge>
+       <label>Number of Cretakers:</label>
+       <input #newCaretakers>
+       <br>
 
+       <label>Sex:</label>
+       <input #newSex>
+       <br>
 
-   <label>Animal diet:</label>
-   <input #newDiet>
+       <label>Likes:</label>
+       <input #newLikes>
+       <br>
 
-   <label>Animal location:</label>
-   <input #newLocation>
-
-   <label>Animal caretakers:</label>
-   <input #newCaretakers>
-
-   <label>Animal sex:</label>
-   <input #newSex>
-
-   <label>Animal likes:</label>
-   <input #newLikes>
-
-   <label>Animal dislikes:</label>
-   <input #newDislikes>
-
-  <button class="btn btn-success" (click)="submitForm(newSpecies.value, newName.value, newAge.value, newDiet.value, newLocation.value, newCaretakers.value, newSex.value, newLikes.value, newDislikes.value); newSpecies.value=''; newName.value=''; newAge.value=''; newDiet.value=''; newLocation.value=''; newCaretakers.value=''; newSex.value=''; newLikes.value=''; newDislikes.value=''; ">Add Animal</button>
+       <label>Dislikes:</label>
+       <input #newDislikes>
+       <br>
+       <button (click)="submitForm(newSpecies.value, newName.value, newAge.value, newDiet.value, newLocation.value, newCaretakers.value, newSex.value, newLikes.value, newDislikes.value); newSpecies.value=''; newName.value=''; newAge.value=''; newDiet.value=''; newLocation.value=''; newCaretakers.value=''; newSex.value=''; newLikes.value=''; newDislikes.value=''; ">Add</button>
   `
 })
 
@@ -45,7 +49,7 @@ export class NewAnimalComponent {
   @Output() newAnimalSender = new EventEmitter();
 
   submitForm(species: string, name: string, age: number, diet: string, location: string, caretakers: number, sex: string, likes: string, dislikes: string) {
-    var newAnimalToAdd: Animal = new Animal(species,name,age,diet,location,caretakers,sex,likes,dislikes);
+    var newAnimalToAdd: Animal = new Animal(species, name, age, diet, location, caretakers, sex, likes, dislikes);
     this.newAnimalSender.emit(newAnimalToAdd);
   }
 }

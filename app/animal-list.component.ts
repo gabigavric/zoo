@@ -4,16 +4,16 @@ import { Animal } from './animal.model';
 @Component({
   selector: 'animal-list',
   template: `
-  <h3>Filter Animals:</h3>
+  <h3>Filter Animals</h3>
   <select (change)="onChange($event.target.value)">
-    <option value="allAnimals">View All Animals</option>
-    <option value="youngAnimal">Young Animals</option>
-    <option value="oldAnimal">Adult Animals</option>
+    <option value="allAnimals">All</option>
+    <option value="youngAnimal">Young</option>
+    <option value="oldAnimal">Adult</option>
   </select>
 
 <ul *ngFor='let currentAnimal of childAnimalList | age:filterByAge'>>
   <li>
-    <h3>{{currentAnimal.species}}</h3><h4>{{currentAnimal.name}}</h4>
+    <h4>{{currentAnimal.species}}</h4><h5>{{currentAnimal.name}}</h5>
 
     <h4>Age: {{currentAnimal.age}}</h4>
     <h4>Diet: {{currentAnimal.diet}}</h4>
